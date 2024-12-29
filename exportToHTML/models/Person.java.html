@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Person.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Person.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">models</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Person </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String surname</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s0">private boolean </span><span class="s1">gender</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Person</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">, </span><span class="s1">String surname</span><span class="s2">, </span><span class="s0">int </span><span class="s1">age</span><span class="s2">, </span><span class="s0">boolean </span><span class="s1">gender</span><span class="s2">) {</span>
+        <span class="s1">setName</span><span class="s2">(</span><span class="s1">name</span><span class="s2">);</span>
+        <span class="s1">setSurname</span><span class="s2">(</span><span class="s1">surname</span><span class="s2">);</span>
+        <span class="s1">setAge</span><span class="s2">(</span><span class="s1">age</span><span class="s2">);</span>
+        <span class="s1">setGender</span><span class="s2">(</span><span class="s1">gender</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">Person</span><span class="s2">() {</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getName</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setName</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">name </span><span class="s2">= </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getSurname</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">surname</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setSurname</span><span class="s2">(</span><span class="s1">String surname</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">surname </span><span class="s2">= </span><span class="s1">surname</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">getAge</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setAge</span><span class="s2">(</span><span class="s0">int </span><span class="s1">age</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">age </span><span class="s2">= </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setGender</span><span class="s2">(</span><span class="s0">boolean </span><span class="s1">gender</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">gender </span><span class="s2">= </span><span class="s1">gender</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public boolean </span><span class="s1">getGender</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">gender</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">String toString</span><span class="s2">() {</span>
+        <span class="s1">String genderStr </span><span class="s2">= </span><span class="s1">gender </span><span class="s2">? </span><span class="s3">&quot;Male&quot; </span><span class="s2">: </span><span class="s3">&quot;Female&quot;</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s3">&quot;Hi, I am &quot; </span><span class="s2">+ </span><span class="s1">name </span><span class="s2">+ </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">surname </span><span class="s2">+ </span><span class="s3">&quot;, a &quot; </span><span class="s2">+ </span><span class="s1">age </span><span class="s2">+ </span><span class="s3">&quot;-year-old &quot; </span><span class="s2">+ </span><span class="s1">genderStr </span><span class="s2">+ </span><span class="s3">&quot;.&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

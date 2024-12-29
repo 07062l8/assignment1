@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>MyApplication.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #cf8e6d;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MyApplication.java</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">import </span><span class="s0">models</span><span class="s2">.</span><span class="s0">School</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">models</span><span class="s2">.</span><span class="s0">Student</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">models</span><span class="s2">.</span><span class="s0">Teacher</span><span class="s2">;</span>
+
+<span class="s1">import </span><span class="s0">java</span><span class="s2">.</span><span class="s0">io</span><span class="s2">.</span><span class="s0">File</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">java</span><span class="s2">.</span><span class="s0">io</span><span class="s2">.</span><span class="s0">FileNotFoundException</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">java</span><span class="s2">.</span><span class="s0">util</span><span class="s2">.</span><span class="s0">Scanner</span><span class="s2">;</span>
+
+<span class="s1">public class </span><span class="s0">MyApplication </span><span class="s2">{</span>
+    <span class="s1">public static void </span><span class="s0">main</span><span class="s2">(</span><span class="s0">String</span><span class="s2">[] </span><span class="s0">args</span><span class="s2">) </span><span class="s1">throws </span><span class="s0">FileNotFoundException </span><span class="s2">{</span>
+        <span class="s0">School school </span><span class="s2">= </span><span class="s1">new </span><span class="s0">School</span><span class="s2">();</span>
+
+        <span class="s0">File studentFile </span><span class="s2">= </span><span class="s1">new </span><span class="s0">File</span><span class="s2">(</span><span class="s3">&quot;src/students.txt&quot;</span><span class="s2">);</span>
+        <span class="s0">Scanner sc </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Scanner</span><span class="s2">(</span><span class="s0">studentFile</span><span class="s2">);</span>
+
+        <span class="s1">while </span><span class="s2">(</span><span class="s0">sc</span><span class="s2">.</span><span class="s0">hasNextLine</span><span class="s2">()) {</span>
+            <span class="s0">String line </span><span class="s2">= </span><span class="s0">sc</span><span class="s2">.</span><span class="s0">nextLine</span><span class="s2">();</span>
+            <span class="s0">Scanner lineScanner </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Scanner</span><span class="s2">(</span><span class="s0">line</span><span class="s2">);</span>
+
+            <span class="s0">String name </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">();</span>
+            <span class="s0">String surname </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">();</span>
+            <span class="s1">int </span><span class="s0">age </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">nextInt</span><span class="s2">();</span>
+            <span class="s1">boolean </span><span class="s0">gender </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">().</span><span class="s0">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;Male&quot;</span><span class="s2">);</span>
+
+            <span class="s0">Student student </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Student</span><span class="s2">(</span><span class="s0">name</span><span class="s2">, </span><span class="s0">surname</span><span class="s2">, </span><span class="s0">age</span><span class="s2">, </span><span class="s0">gender</span><span class="s2">);</span>
+
+            <span class="s1">while </span><span class="s2">(</span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">hasNextInt</span><span class="s2">()) {</span>
+                <span class="s0">student</span><span class="s2">.</span><span class="s0">addGrade</span><span class="s2">(</span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">nextInt</span><span class="s2">());</span>
+            <span class="s2">}</span>
+
+            <span class="s0">school</span><span class="s2">.</span><span class="s0">addMember</span><span class="s2">(</span><span class="s0">student</span><span class="s2">);</span>
+            <span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">close</span><span class="s2">();</span>
+        <span class="s2">}</span>
+
+        <span class="s0">sc</span><span class="s2">.</span><span class="s0">close</span><span class="s2">();</span>
+        <span class="s0">File teacherFile </span><span class="s2">= </span><span class="s1">new </span><span class="s0">File</span><span class="s2">(</span><span class="s3">&quot;src/teachers.txt&quot;</span><span class="s2">);</span>
+        <span class="s0">Scanner scTeacher </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Scanner</span><span class="s2">(</span><span class="s0">teacherFile</span><span class="s2">);</span>
+
+        <span class="s1">while </span><span class="s2">(</span><span class="s0">scTeacher</span><span class="s2">.</span><span class="s0">hasNextLine</span><span class="s2">()) {</span>
+            <span class="s0">String line </span><span class="s2">= </span><span class="s0">scTeacher</span><span class="s2">.</span><span class="s0">nextLine</span><span class="s2">();</span>
+            <span class="s0">Scanner lineScanner </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Scanner</span><span class="s2">(</span><span class="s0">line</span><span class="s2">);</span>
+
+            <span class="s0">String name </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">();</span>
+            <span class="s0">String surname </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">();</span>
+            <span class="s1">int </span><span class="s0">age </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">nextInt</span><span class="s2">();</span>
+            <span class="s1">boolean </span><span class="s0">gender </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">().</span><span class="s0">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;Male&quot;</span><span class="s2">);</span>
+            <span class="s0">String subject </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">next</span><span class="s2">();</span>
+            <span class="s1">int </span><span class="s0">yearsOfExperience </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">nextInt</span><span class="s2">();</span>
+            <span class="s1">int </span><span class="s0">salary </span><span class="s2">= </span><span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">nextInt</span><span class="s2">();</span>
+
+            <span class="s0">Teacher teacher </span><span class="s2">= </span><span class="s1">new </span><span class="s0">Teacher</span><span class="s2">(</span><span class="s0">name</span><span class="s2">, </span><span class="s0">surname</span><span class="s2">, </span><span class="s0">age</span><span class="s2">, </span><span class="s0">gender</span><span class="s2">, </span><span class="s0">subject</span><span class="s2">, </span><span class="s0">yearsOfExperience</span><span class="s2">, </span><span class="s0">salary</span><span class="s2">);</span>
+
+            <span class="s1">if </span><span class="s2">(</span><span class="s0">teacher</span><span class="s2">.</span><span class="s0">getYearsOfExperience</span><span class="s2">() &gt; </span><span class="s4">10</span><span class="s2">) {</span>
+                <span class="s0">teacher</span><span class="s2">.</span><span class="s0">giveRaise</span><span class="s2">(</span><span class="s4">10</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s0">school</span><span class="s2">.</span><span class="s0">addMember</span><span class="s2">(</span><span class="s0">teacher</span><span class="s2">);</span>
+            <span class="s0">lineScanner</span><span class="s2">.</span><span class="s0">close</span><span class="s2">();</span>
+        <span class="s2">}</span>
+
+        <span class="s0">scTeacher</span><span class="s2">.</span><span class="s0">close</span><span class="s2">();</span>
+
+        <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s0">school</span><span class="s2">);</span>
+ <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
